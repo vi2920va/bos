@@ -2,14 +2,22 @@
   "name": "express-wetube",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "The best way to wath videos",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/vi2920va/node-express-wetube.git"
   },
-  "author": "vi2920va",
+  "author": "vi2920va<vi2920va@gmail.com>",
   "license": "MIT",
-  "description": ""
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9"
+  }
 }
