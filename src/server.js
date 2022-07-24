@@ -4,16 +4,21 @@ const PORT = 4000;
 
 const app = express();
 
+const gossipMiddleware = (request, response, next) => {
+  console.log(`Someone is going to: ${request.url}`);
+  next();
+};
+
 const handleHome = (request, response) => {
-  return response.send("Home here.");
+  return response.send("I love middlewares");
 };
 
 const handleLogin = (request, response) => {
-  return response.send("Login here.");
+  return response.send({ message: "Login here." });
 };
 
-app.get("/", handleHome);
-app.get("./login", handleLogin);
+app.get("/", gossipMiddleware, handleHome);
+app.get("/login", handleLogin);
 
 const handleListening = () =>
   console.log(`✅ Server listenting on port http://localhost:${PORT} 🚀`);
