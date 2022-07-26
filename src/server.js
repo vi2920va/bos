@@ -4,8 +4,8 @@ const PORT = 4000;
 
 const app = express();
 
-const gossipMiddleware = (request, response, next) => {
-  console.log(`Someone is going to: ${request.url}`);
+const logger = (request, response, next) => {
+  console.log(`${request.method} ${request.url}`); // GET /URL
   next();
 };
 
@@ -17,7 +17,7 @@ const handleLogin = (request, response) => {
   return response.send({ message: "Login here." });
 };
 
-app.get("/", gossipMiddleware, handleHome);
+app.get("/", logger, handleHome);
 app.get("/login", handleLogin);
 
 const handleListening = () =>
